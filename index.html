@@ -7,54 +7,32 @@
             width: 200px;
             height: 200px;
         }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+        .slider {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div id="colorDisplay"></div>
-    <input type="number" id="red" min="0" max="255">
-    <input type="number" id="green" min="0" max="255">
-    <input type="number" id="blue" min="0" max="255">
+    <label for="red">Red: </label><input type="range" id="red" min="0" max="255" class="slider"><span id="redVal"></span><br>
+    <label for="green">Green: </label><input type="range" id="green" min="0" max="255" class="slider"><span id="greenVal"></span><br>
+    <label for="blue">Blue: </label><input type="range" id="blue" min="0" max="255" class="slider"><span id="blueVal"></span><br>
     <button onclick="submitGuess()">Submit</button>
     <p id="distance"></p>
-
-            <!-- Add a footer with a copyright notice -->
     <div class="footer">
-        <p>Copyright &copy; 2023 Amir Naveh. All rights reserved.</p>
+        <p>Copyright &copy; 2023 YourName. All rights reserved.</p>
     </div>
 
-    <script>
-        var actualRed, actualGreen, actualBlue;
-
-        function newColor() {
-            actualRed = Math.floor(Math.random() * 256);
-            actualGreen = Math.floor(Math.random() * 256);
-            actualBlue = Math.floor(Math.random() * 256);
-
-            document.getElementById('colorDisplay').style.backgroundColor = `rgb(${actualRed},${actualGreen},${actualBlue})`;
-        }
-
-        function submitGuess() {
-            var guessedRed = document.getElementById('red').value;
-            var guessedGreen = document.getElementById('green').value;
-            var guessedBlue = document.getElementById('blue').value;
-
-            var distance = Math.sqrt(
-                Math.pow(actualRed - guessedRed, 2) + 
-                Math.pow(actualGreen - guessedGreen, 2) +
-                Math.pow(actualBlue - guessedBlue, 2)
-            );
-
-            document.getElementById('distance').innerText = `Color distance: ${distance.toFixed(2)}`;
-
-            if (distance === 0) {
-                alert('Congratulations! You have found the exact color!');
-                newColor();
-            }
-        }
-
-        newColor();
-    </script>
-
-
+    <script src="main.js"></script>
 </body>
 </html>
