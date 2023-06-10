@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RGBit</title>
+    <style>
+        #colorDisplay {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDisplay"></div>
+    <input type="number" id="red" min="0" max="255">
+    <input type="number" id="green" min="0" max="255">
+    <input type="number" id="blue" min="0" max="255">
+    <button onclick="submitGuess()">Submit</button>
+    <p id="distance"></p>
+    <script>
+        var actualRed, actualGreen, actualBlue;
+
+        function newColor() {
+            actualRed = Math.floor(Math.random() * 256);
+            actualGreen = Math.floor(Math.random() * 256);
+            actualBlue = Math.floor(Math.random() * 256);
+
+            document.getElementById('colorDisplay').style.backgroundColor = `rgb(${actualRed},${actualGreen},${actualBlue})`;
+        }
+
+        function submitGuess() {
+            var guessedRed = document.getElementById('red').value;
+            var guessedGreen = document.getElementById('green').value;
+            var guessedBlue = document.getElementById('blue').value;
+
+            var distance = Math.sqrt(
+                Math.pow(actualRed - guessedRed, 2) + 
+                Math.pow(actualGreen - guessedGreen, 2) +
+                Math.pow(actualBlue - guessedBlue, 2)
+            );
+
+            document.getElementById('distance').innerText = `Color distance: ${distance.toFixed(2)}`;
+
+            if (distance === 0) {
+                alert('Congratulations! You have found the exact color!');
+                newColor();
+            }
+        }
+
+        newColor();
+    </script>
+</body>
+</html>
