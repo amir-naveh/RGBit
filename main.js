@@ -29,4 +29,9 @@ function submitGuess() {
 
     let totalDistance = Math.abs(redDistance) + Math.abs(greenDistance) + Math.abs(blueDistance);
     document.getElementById("distance").textContent = `Total distance: ${totalDistance}`;
+
+    if (distance === 0) {
+        alert('Congratulations! You have found the exact color!');
+        newColor();
+    }
 }
