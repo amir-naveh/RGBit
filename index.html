@@ -24,9 +24,9 @@
 </head>
 <body>
     <div id="colorDisplay"></div>
-    <label for="red">Red: </label><input type="range" id="red" min="0" max="255" class="slider"><span id="redVal"></span><br>
-    <label for="green">Green: </label><input type="range" id="green" min="0" max="255" class="slider"><span id="greenVal"></span><br>
-    <label for="blue">Blue: </label><input type="range" id="blue" min="0" max="255" class="slider"><span id="blueVal"></span><br>
+    <label for="red">Red: </label><input type="range" id="red" min="0" max="255" class="slider"><input type="number" id="redNum" min="0" max="255"><br>
+    <label for="green">Green: </label><input type="range" id="green" min="0" max="255" class="slider"><input type="number" id="greenNum" min="0" max="255"><br>
+    <label for="blue">Blue: </label><input type="range" id="blue" min="0" max="255" class="slider"><input type="number" id="blueNum" min="0" max="255"><br>
     <button onclick="submitGuess()">Submit</button>
     <p id="distance"></p>
     <p id="result"></p>

@@ -12,13 +12,23 @@ colorDisplay.style.backgroundColor = `rgb(${correctColor.red}, ${correctColor.gr
 // Display the correct RGB values (for debugging)
 document.getElementById("correctRGB").textContent = `Correct RGB values: R${correctColor.red} G${correctColor.green} B${correctColor.blue}`;
 
+
 // Handle slider changes
 let sliders = document.querySelectorAll(".slider");
 sliders.forEach(slider => {
     slider.oninput = function() {
-        document.getElementById(slider.id + "Val").textContent = this.value;
+        document.getElementById(slider.id + "Num").value = this.value;
     }
 });
+
+// Handle number input changes
+let numberInputs = document.querySelectorAll('input[type="number"]');
+numberInputs.forEach(numberInput => {
+    numberInput.oninput = function() {
+        document.getElementById(this.id.replace("Num", "")).value = this.value;
+    }
+});
+
 
 // Compute the distance between the correct color and the user's guess
 function submitGuess() {
