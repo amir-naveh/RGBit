@@ -9,6 +9,9 @@ let correctColor = {
 let colorDisplay = document.getElementById("colorDisplay");
 colorDisplay.style.backgroundColor = `rgb(${correctColor.red}, ${correctColor.green}, ${correctColor.blue})`;
 
+// Display the correct RGB values (for debugging)
+document.getElementById("correctRGB").textContent = `Correct RGB values: R${correctColor.red} G${correctColor.green} B${correctColor.blue}`;
+
 // Handle slider changes
 let sliders = document.querySelectorAll(".slider");
 sliders.forEach(slider => {
@@ -31,8 +34,11 @@ function submitGuess() {
     document.getElementById("distance").textContent = `Total distance: ${totalDistance}`;
 
     // Add congratulatory message if the guess is correct
+    // Add congratulatory message if the guess is correct
     if (totalDistance === 0) {
-        document.getElementById("result").textContent = "Congratulations! You've guessed the color correctly
+        document.getElementById("result").textContent = "Congratulations! You've guessed the color correctly.";
+    } else {
+        document.getElementById("result").textContent = "";
     }
 
 
